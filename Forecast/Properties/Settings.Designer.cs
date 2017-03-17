@@ -27,9 +27,9 @@ namespace Forecast.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php")]
-        public string Forecast_gov_weather_graphical_ndfdXML {
+        public string Forecast_WeatherService_ndfdXML {
             get {
-                return ((string)(this["Forecast_gov_weather_graphical_ndfdXML"]));
+                return ((string)(this["Forecast_WeatherService_ndfdXML"]));
             }
         }
     }

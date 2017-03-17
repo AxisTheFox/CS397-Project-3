@@ -102,8 +102,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\gov.weather.graphical\ndfdXML.wsdl" />
-    <Content Include="Web References\gov.weather.graphical\Reference.map">
+    <None Include="Web References\WeatherService\ndfdXML.wsdl" />
+    <Content Include="Web References\WeatherService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
@@ -115,16 +115,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Forecast.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forecast.aspx.cs">
+      <DependentUpon>Forecast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forecast.aspx.designer.cs">
+      <DependentUpon>Forecast.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\gov.weather.graphical\Reference.cs">
+    <Compile Include="Web References\WeatherService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -139,14 +147,14 @@
   <ItemGroup>
     <WebReferenceUrl Include="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\gov.weather.graphical\</RelPath>
+      <RelPath>Web References\WeatherService\</RelPath>
       <UpdateFromURL>https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Forecast_gov_weather_graphical_ndfdXML</CachedSettingsPropName>
+      <CachedSettingsPropName>Forecast_WeatherService_ndfdXML</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

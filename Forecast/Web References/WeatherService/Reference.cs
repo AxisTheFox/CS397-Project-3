@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Forecast.gov.weather.graphical {
+namespace Forecast.WeatherService {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -57,7 +57,7 @@ namespace Forecast.gov.weather.graphical {
         
         /// <remarks/>
         public ndfdXML() {
-            this.Url = global::Forecast.Properties.Settings.Default.Forecast_gov_weather_graphical_ndfdXML;
+            this.Url = global::Forecast.Properties.Settings.Default.Forecast_WeatherService_ndfdXML;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
