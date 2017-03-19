@@ -25,6 +25,10 @@ namespace Forecast
             XmlDocument latLonXmlDocument = new XmlDocument();
             latLonXmlDocument.LoadXml(latLonXml);
             string latLonList = latLonXmlDocument.InnerText;
+
+            string fiveDayForecastsXml = weatherService.NDFDgenByDayLatLonList(latLonList, DateTime.Today, "5", WeatherService.unitType.e, WeatherService.formatType.Item24hourly);
+            XmlDocument fiveDayForecastsXmlDocument = new XmlDocument();
+            fiveDayForecastsXmlDocument.LoadXml(fiveDayForecastsXml);
         }
     }
 }
