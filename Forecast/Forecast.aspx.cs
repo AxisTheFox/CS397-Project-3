@@ -26,9 +26,16 @@ namespace Forecast
             latLonXmlDocument.LoadXml(latLonXml);
             string latLonList = latLonXmlDocument.InnerText;
 
-            string fiveDayForecastsXml = weatherService.NDFDgenByDayLatLonList(latLonList, DateTime.Today, "5", WeatherService.unitType.e, WeatherService.formatType.Item24hourly);
-            XmlDocument fiveDayForecastsXmlDocument = new XmlDocument();
-            fiveDayForecastsXmlDocument.LoadXml(fiveDayForecastsXml);
+            string forecastsXml = weatherService.NDFDgenByDayLatLonList(latLonList, DateTime.Today, "5", WeatherService.unitType.e, WeatherService.formatType.Item24hourly);
+            XmlDocument forecastsXmlDocument = new XmlDocument();
+            forecastsXmlDocument.LoadXml(forecastsXml);
+
+            forecasts.InnerHtml += "<table>";
+            XmlNodeList locations = forecastsXmlDocument.GetElementsByTagName("parameters");
+            foreach(XmlNode location in locations)
+            {
+
+            }
         }
     }
 }
