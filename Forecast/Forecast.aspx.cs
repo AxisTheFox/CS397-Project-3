@@ -18,11 +18,13 @@ namespace Forecast
         protected void submitButton_Click(object sender, EventArgs e)
         {
             string zipCodes = zipCodeTextBox.Text;
-            WeatherService.ndfdXML weather = new WeatherService.ndfdXML();
-            string forecast = weather.NDFDgenByDay(-45, 88, DateTime.Today, "5", WeatherService.unitType.e, WeatherService.formatType.Item12hourly);
-            XmlDocument nwsWeatherForecast = new XmlDocument();
-            nwsWeatherForecast.LoadXml(forecast);
-            XmlNodeList temperature = nwsWeatherForecast.GetElementsByTagName("temperature");
+
+            WeatherService.ndfdXML weatherService = new WeatherService.ndfdXML();
+
+            string latLonXml = weatherService.LatLonListZipCode(zipCodes);
+            XmlDocument latLonXmlDocument = new XmlDocument();
+            latLonXmlDocument.LoadXml(latLonXml);
+            string latLonList = latLonXmlDocument.InnerText;
         }
     }
 }
