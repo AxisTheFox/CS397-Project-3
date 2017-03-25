@@ -1,4 +1,8 @@
-﻿table, th, td {
+﻿h1, h2, h3, p, table, th, td {
+    font-family: Arial;
+}
+
+table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
