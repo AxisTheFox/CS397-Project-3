@@ -103,6 +103,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Web References\WeatherService\ndfdXML.wsdl" />
+    <Content Include="style.css" />
     <Content Include="Web References\WeatherService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
