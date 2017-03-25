@@ -92,46 +92,81 @@ namespace Forecast
                     }
                 }
 
-                forecasts.InnerHtml += "<p><table>";
-
-                forecasts.InnerHtml += "<tr>";
-                foreach(double maxTemp in maxTemperatures)
-                {
-                    forecasts.InnerHtml += "<td>";
-                    forecasts.InnerHtml += "High: " +  maxTemp;
-                    forecasts.InnerHtml += "</td>";
-                }
-                forecasts.InnerHtml += "</tr>";
-
-                forecasts.InnerHtml += "<tr>";
-                foreach (string iconUrl in conditionIconUrls)
-                {
-                    forecasts.InnerHtml += "<td>";
-                    forecasts.InnerHtml += "<img src=" + iconUrl + ">";
-                    forecasts.InnerHtml += "</td>";
-                }
-                forecasts.InnerHtml += "</tr>";
-
-                forecasts.InnerHtml += "<tr>";
-                foreach (double minTemp in minTemperatures)
-                {
-                    forecasts.InnerHtml += "<td>";
-                    forecasts.InnerHtml += "Low: " + minTemp;
-                    forecasts.InnerHtml += "</td>";
-                }
-                forecasts.InnerHtml += "</tr>";
-
-                forecasts.InnerHtml += "<tr>";
-                foreach (string weatherDescription in descriptions)
-                {
-                    forecasts.InnerHtml += "<td>";
-                    forecasts.InnerHtml += weatherDescription;
-                    forecasts.InnerHtml += "</td>";
-                }
-                forecasts.InnerHtml += "</tr>";
-
-                forecasts.InnerHtml += "</table></p>";
+                formatTableHtmlUsing(maxTemperatures, minTemperatures, conditionIconUrls, descriptions);
             }
+        }
+
+        private void formatTableHtmlUsing(List<double> maxTemperatures, List<double> minTemperatures, List<string> conditionIconUrls, List<string> descriptions)
+        {
+            formatTableHeader();
+            formatTableBody(maxTemperatures, minTemperatures, conditionIconUrls, descriptions);
+            formatTableFooter();
+        }
+
+        private void formatTableHeader()
+        {
+            forecasts.InnerHtml += "<p><table>";
+        }
+
+        private void formatTableBody(List<double> maxTemperatures, List<double> minTemperatures, List<string> conditionIconUrls, List<string> descriptions)
+        {
+            displayMaxTemps(maxTemperatures);
+            displayIcons(conditionIconUrls);
+            displayMinTemps(minTemperatures);
+            displayDescriptions(descriptions);
+        }
+
+        private void formatTableFooter()
+        {
+            forecasts.InnerHtml += "</table></p>";
+        }
+
+        private void displayMaxTemps(List<double> maxTemperatures)
+        {
+            forecasts.InnerHtml += "<tr>";
+            foreach (double maxTemp in maxTemperatures)
+            {
+                forecasts.InnerHtml += "<td>";
+                forecasts.InnerHtml += "High: " + maxTemp;
+                forecasts.InnerHtml += "</td>";
+            }
+            forecasts.InnerHtml += "</tr>";
+        }
+
+        private void displayIcons(List<string> conditionIconUrls)
+        {
+            forecasts.InnerHtml += "<tr>";
+            foreach (string iconUrl in conditionIconUrls)
+            {
+                forecasts.InnerHtml += "<td>";
+                forecasts.InnerHtml += "<img src=" + iconUrl + ">";
+                forecasts.InnerHtml += "</td>";
+            }
+            forecasts.InnerHtml += "</tr>";
+        }
+
+        private void displayMinTemps(List<double> minTemperatures)
+        {
+            forecasts.InnerHtml += "<tr>";
+            foreach (double minTemp in minTemperatures)
+            {
+                forecasts.InnerHtml += "<td>";
+                forecasts.InnerHtml += "Low: " + minTemp;
+                forecasts.InnerHtml += "</td>";
+            }
+            forecasts.InnerHtml += "</tr>";
+        }
+
+        private void displayDescriptions(List<string> descriptions)
+        {
+            forecasts.InnerHtml += "<tr>";
+            foreach (string weatherDescription in descriptions)
+            {
+                forecasts.InnerHtml += "<td>";
+                forecasts.InnerHtml += weatherDescription;
+                forecasts.InnerHtml += "</td>";
+            }
+            forecasts.InnerHtml += "</tr>";
         }
     }
 }
